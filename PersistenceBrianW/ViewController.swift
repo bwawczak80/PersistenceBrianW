@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    fileprivate static let rootKey = "rootKey"
     @IBOutlet var lineFields:[UITextField]!
 
     
@@ -23,6 +25,17 @@ class ViewController: UIViewController {
                     lineFields[i].text = array[i]
                 }
             }
+            
+            let data = NSMutableData(contentsOf: fileURL as URL)
+            let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data! as Data)
+            
+            let fourLines = unarchiver!.decodeObject(forKey: ViewController.rootKey) as! FourLines
+            unarchiver!.finishDecoding()
+            if let newLines = fourLines.lines {
+                for i in 0..<newLines.count {
+                    lineFields[i].text = newLines[i]
+                }
+            }
         }
         
         let app = UIApplication.shared
@@ -31,19 +44,29 @@ class ViewController: UIViewController {
     
     @objc func applicationWillResignActive(notification:NSNotification) {
         let fileURL = self.dataFileURL()
-        let array = (self.lineFields as NSArray).value(forKey: "text") as! NSArray
-        array.write(to: fileURL as URL, atomically: true)
+        let fourLines = FourLines()
+        let array = (self.lineFields as NSArray).value(forKey: "text") as! [String]
+        fourLines.lines = array
+        
+        //let data = NSMutableData()
+        let archiver = NSKeyedArchiver(requiringSecureCoding: true)
+        let data = archiver.encodedData
+        //let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(fourLines, forKey: ViewController.rootKey)
+        archiver.finishEncoding()
+        do {
+            try data.write(to: fileURL as URL)
+        } catch {
+            print("Error is \(error)")
+        }
     }
 
     func dataFileURL() -> NSURL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         var url:NSURL?
         url = URL(fileURLWithPath: "") as NSURL
-        do {
-            try url = urls.first!.appendingPathComponent("data.plist") as NSURL
-        } catch {
-            print("Error is \(error)")
-        }
+        url = urls.first!.appendingPathComponent("data.archive") as NSURL
+        
         return url!
     }
 }

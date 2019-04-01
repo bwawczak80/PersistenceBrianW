@@ -13,6 +13,7 @@
 		6B331DAC2251A5BD0050A02C /* PersistenceBrianW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B331DAA2251A5BD0050A02C /* PersistenceBrianW.xcdatamodeld */; };
 		6B331DAE2251A5BF0050A02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B331DAD2251A5BF0050A02C /* Assets.xcassets */; };
 		6B331DB12251A5BF0050A02C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B331DAF2251A5BF0050A02C /* LaunchScreen.storyboard */; };
+		6B331DB92251C2170050A02C /* FourLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B331DB82251C2170050A02C /* FourLines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6B331DAD2251A5BF0050A02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B331DB02251A5BF0050A02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B331DB22251A5BF0050A02C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B331DB82251C2170050A02C /* FourLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourLines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				6B331DA32251A5BD0050A02C /* AppDelegate.swift */,
 				6B331DA52251A5BD0050A02C /* ViewController.swift */,
+				6B331DB82251C2170050A02C /* FourLines.swift */,
 				6B331DA72251A5BD0050A02C /* Main.storyboard */,
 				6B331DAD2251A5BF0050A02C /* Assets.xcassets */,
 				6B331DAF2251A5BF0050A02C /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B331DA62251A5BD0050A02C /* ViewController.swift in Sources */,
+				6B331DB92251C2170050A02C /* FourLines.swift in Sources */,
 				6B331DA42251A5BD0050A02C /* AppDelegate.swift in Sources */,
 				6B331DAC2251A5BD0050A02C /* PersistenceBrianW.xcdatamodeld in Sources */,
 			);
